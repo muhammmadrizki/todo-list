@@ -1,3 +1,5 @@
+import { Button } from "./components/button";
+
 const tasks = [
   {
     id: 1,
@@ -25,6 +27,7 @@ export function App() {
               <h2>{task.title}</h2>
               <p>{task.completed ? "Completed" : "Incomplete"}</p>
               <p>Date Time: {task.date.toLocaleString()}</p>
+              <Button>Delete</Button>
             </li>
           );
         })}
