@@ -3,33 +3,33 @@ import { ButtonSmall } from "./components/button";
 const tasks = [
   {
     id: 1,
-    title: "Breakfast",
+    title: "Wake Up",
     completed: true,
-    date: new Date("2025-05-20 8:00"),
+    date: new Date("2025-05-19 5:00"),
   },
   {
     id: 2,
-    title: "Go to work room",
-    completed: false,
-    date: new Date("2025-05-20 9:00"),
+    title: "Subuh",
+    completed: true,
+    date: new Date("2025-05-19 5:15"),
   },
   {
     id: 3,
-    title: "Coding",
-    completed: false,
-    date: new Date("2025-05-20 10:00"),
+    title: "Buying Breakfasr",
+    completed: true,
+    date: new Date("2025-05-19 6:00"),
   },
   {
     id: 4,
-    title: "Lunch",
-    completed: false,
-    date: new Date("2025-05-20 12:00"),
+    title: "Olahraga",
+    completed: true,
+    date: new Date("2025-05-19 7:00"),
   },
   {
     id: 5,
-    title: "Meeting",
+    title: "Bootcamp",
     completed: false,
-    date: new Date("2025-05-20 13:00"),
+    date: new Date("2025-05-19 9:00 - 12:00"),
   },
   {
     id: 6,
@@ -59,8 +59,8 @@ const tasks = [
 
 export function App() {
   return (
-    <div className="p-4 space-y-10">
-      <h1 className="text-3xl">Todo List</h1>
+    <div className="p-4 ">
+      <h1 className="p-8 text-3xl">Todo List</h1>
 
       <ul className="space-y-8">
         {tasks.map((task) => {
