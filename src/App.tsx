@@ -15,7 +15,7 @@ const tasks = [
   },
   {
     id: 3,
-    title: "Buying Breakfasr",
+    title: "Breakfast",
     completed: true,
     date: new Date("2025-05-19 6:00"),
   },
@@ -29,7 +29,7 @@ const tasks = [
     id: 5,
     title: "Bootcamp",
     completed: false,
-    date: new Date("2025-05-19 9:00 - 12:00"),
+    date: new Date("2025-05-19 9:00"),
   },
   {
     id: 6,
