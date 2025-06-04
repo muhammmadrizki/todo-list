@@ -1,35 +1,38 @@
-import { ButtonSmall } from "./components/button";
+import { useState } from "react";
+import type { Task } from "./modules/task/type";
+import { TaskCard } from "./components/task-card";
+import { Button } from "./components/button";
 
-const tasks = [
+const initialTasks: Task[] = [
   {
     id: 1,
-    title: "Wake Up",
+    title: "Breakfast",
     completed: true,
-    date: new Date("2025-05-19 5:00"),
+    date: new Date("2025-05-20 8:00"),
   },
   {
     id: 2,
-    title: "Subuh",
-    completed: true,
-    date: new Date("2025-05-19 5:15"),
+    title: "Go to work room",
+    completed: false,
+    date: new Date("2025-05-20 9:00"),
   },
   {
     id: 3,
-    title: "Breakfast",
-    completed: true,
-    date: new Date("2025-05-19 6:00"),
+    title: "Coding",
+    completed: false,
+    date: new Date("2025-05-20 10:00"),
   },
   {
     id: 4,
-    title: "Olahraga",
-    completed: true,
-    date: new Date("2025-05-19 7:00"),
+    title: "Lunch",
+    completed: false,
+    date: new Date("2025-05-20 12:00"),
   },
   {
     id: 5,
-    title: "Bootcamp",
+    title: "Meeting",
     completed: false,
-    date: new Date("2025-05-19 9:00"),
+    date: new Date("2025-05-20 13:00"),
   },
   {
     id: 6,
@@ -58,28 +61,57 @@ const tasks = [
 ];
 
 export function App() {
-  return (
-    <div className="p-4 bg-blue-400 flex justify-center ">
-      <section className="w-full max-w-lg">
-        <h1 className="p-8 text-3xl">Todo List</h1>
+  const [tasks, setTasks] = useState(initialTasks);
 
+  function addTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
+    const title = String(formData.get("title"));
+
+    const newTask = {
+      id: tasks[tasks.length - 1].id + 1,
+      title: title,
+      completed: false,
+      date: new Date(),
+    };
+
+    const updatedTasks = [...tasks, newTask];
+
+    setTasks(updatedTasks);
+
+    event.currentTarget.reset();
+  }
+
+  function removeTask(id: number) {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+  }
+
+  return (
+    <div className="p-4 bg-blue-400 flex justify-center">
+      <section className="w-full max-w-lg">
+        {" "}
+        <h1 className="p-8 text-3xl">Todo List</h1>
+        <form onSubmit={addTask} method="post">
+          <label htmlFor="title">Task title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Task title"
+            className="p-2 border"
+          />
+          <Button type="submit" className="p-2 bg-blue-300">
+            Add Task
+          </Button>
+        </form>
         <ul className="space-y-2">
           {tasks.map((task) => {
             return (
-              <li key={task.id} className="bg-white p-4 rounded-lg">
-                <h2 className="text-xl font-bold">{task.title}</h2>
-                <p className="font-bold">
-                  {task.completed ? (
-                    <span className="text-green-500">🟢 Completed</span>
-                  ) : (
-                    <span className="text-yellow-500">🟡 Incomplete</span>
-                  )}
-                </p>
-                <p>
-                  <span className="font-bold">Date Time: </span>
-                  <span>{task.date.toLocaleString()}</span>
-                </p>
-                <ButtonSmall>Delete</ButtonSmall>
+              <li key={task.id}>
+                <TaskCard task={task} removeTask={removeTask} />
               </li>
             );
           })}
