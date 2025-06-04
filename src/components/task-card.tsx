@@ -13,9 +13,9 @@ export function TaskCard({
       <h2 className="text-xl font-bold">{task.title}</h2>
       <p className="font-bold">
         {task.completed ? (
-          <span className="text-green-500">🟢 Completed</span>
+          <span className="text-green-600">🟢 Completed</span>
         ) : (
-          <span className="text-yellow-500">🟡 Incomplete</span>
+          <span className="text-yellow-600">🟡 Incomplete</span>
         )}
       </p>
       <p>

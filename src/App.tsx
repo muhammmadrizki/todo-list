@@ -90,7 +90,7 @@ export function App() {
   }
 
   return (
-    <div className="p-4 bg-blue-400 flex justify-center">
+    <div className="p-4 flex justify-center">
       <section className="w-full max-w-lg">
         {" "}
         <h1 className="p-8 text-3xl">Todo List</h1>
@@ -103,9 +103,7 @@ export function App() {
             placeholder="Task title"
             className="p-2 border"
           />
-          <Button type="submit" className="p-2 bg-blue-300">
-            Add Task
-          </Button>
+          <Button type="submit">Add Task</Button>
         </form>
         <ul className="space-y-2">
           {tasks.map((task) => {
