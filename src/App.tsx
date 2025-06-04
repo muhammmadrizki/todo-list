@@ -95,7 +95,7 @@ export function App() {
         {" "}
         <h1 className="p-8 text-3xl">Todo List</h1>
         <form onSubmit={addTask} method="post">
-          <label htmlFor="title">Task title</label>
+          <label htmlFor="title"></label>
           <input
             type="text"
             id="title"
