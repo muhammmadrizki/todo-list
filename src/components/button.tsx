@@ -13,7 +13,7 @@ export function ButtonSmall(
   return (
     <button
       {...props}
-      className="px-4 py-4 font-bold bg-red-400 text-red-6 rounded-lg text-md"
+      className="px-2 py-1 text-xs font-bold bg-red-400 text-red-6 rounded-lg text-md"
     />
   );
 }
