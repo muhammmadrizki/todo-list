@@ -12,8 +12,8 @@ createRoot(document.getElementById("root")!).render(<App />);
 function App() {
   return (
     <BrowserRouter>
-      <nav className="bg-blue-100 p-4 text-sm">
-        <ul className="flex gap-4">
+      <nav className="bg-green-300 p-8 text-md">
+        <ul className="flex gap-8">
           <li>
             <Link to="/">Home</Link>
           </li>

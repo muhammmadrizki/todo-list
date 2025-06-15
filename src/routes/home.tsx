@@ -36,14 +36,14 @@ export function HomeRoute() {
 
   return (
     <div className="p-4 space-y-10">
-      <h1 className="text-3xl">Todo List</h1>
+      <h1 className="text-3xl">SIMPLE TO DO LIST </h1>
 
       <form
         onSubmit={addTask}
         method="post"
         className="flex flex-col gap-2 max-w-xs"
       >
-        <label htmlFor="title">Task title</label>
+        <label htmlFor="title">Enter Your Task</label>
         <input
           type="text"
           id="title"
@@ -51,7 +51,7 @@ export function HomeRoute() {
           placeholder="Task title"
           className="p-2 border"
         />
-        <Button type="submit" className="p-2 bg-blue-300">
+        <Button type="submit" className="p-4 bg-blue-800">
           Add Task
         </Button>
       </form>
