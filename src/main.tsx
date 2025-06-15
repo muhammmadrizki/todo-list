@@ -1,10 +1,37 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import { App } from "./App";
+import { BrowserRouter, Routes, Route, Link } from "react-router";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+import "./index.css";
+import { HomeRoute } from "./routes/home";
+import { AboutRoute } from "./routes/about";
+import { TaskDetailsRoute } from "./routes/task-details";
+import { CounterRoute } from "./routes/counter";
+
+createRoot(document.getElementById("root")!).render(<App />);
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav className="bg-blue-100 p-4 text-sm">
+        <ul className="flex gap-4">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/counter">Counter</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<HomeRoute />} />
+        <Route path="/about" element={<AboutRoute />} />
+        <Route path="/tasks/:taskId" element={<TaskDetailsRoute />} />
+        <Route path="/counter" element={<CounterRoute />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}

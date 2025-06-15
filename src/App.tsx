@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Task } from "./modules/task/type";
+import type { Task } from "./modules/type";
 import { TaskCard } from "./components/task-card";
 import { Button } from "./components/button";
 
@@ -8,7 +8,7 @@ const initialTasks: Task[] = [
     id: 1,
     title: "Breakfast",
     completed: true,
-    date: new Date("2025-05-20 8:00"),
+    date: new Date("2025-06-15 8:00"),
   },
   {
     id: 2,
