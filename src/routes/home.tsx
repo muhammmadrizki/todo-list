@@ -16,7 +16,7 @@ export function HomeRoute() {
     const title = String(formData.get("title"));
 
     const newTask = {
-      id: tasks[tasks.length - 1].id + 1,
+      id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
       title: title,
       completed: false,
       date: new Date(),
