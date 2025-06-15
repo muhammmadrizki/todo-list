@@ -33,9 +33,10 @@ export function HomeRoute() {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
   }
+  //    <div className="p-4 bg-blue-400 flex justify-center">
 
   return (
-    <div className="p-4 space-y-10">
+    <div className="p-6 space-y-8 bg-lime-200 flex justify-center">
       <h1 className="text-3xl">SIMPLE TO DO LIST </h1>
 
       <form
